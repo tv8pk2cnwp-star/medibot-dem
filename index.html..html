@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MediBot — WhatsApp Clinic Assistant | Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.2.0/dist/tabler-icons.min.css" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --wg: #075E54;
+    --wg2: #128C7E;
+    --wg3: #25D366;
+    --wg-light: #DCF8C6;
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --text: #0f1117;
+    --muted: #6b7280;
+    --accent: #128C7E;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; gap: 0; height: 60px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 16px; font-weight: 600; color: var(--wg);
+    text-decoration: none; margin-right: auto;
+  }
+  .nav-logo .logo-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--wg); display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo .logo-icon i { color: #fff; font-size: 17px; }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-links a {
+    padding: 6px 14px; border-radius: 20px; font-size: 13px;
+    color: var(--muted); text-decoration: none; transition: all 0.15s;
+  }
+  .nav-links a:hover { background: var(--bg); color: var(--text); }
+  .nav-cta {
+    margin-left: 16px; padding: 8px 18px; border-radius: 20px;
+    background: var(--wg); color: #fff; font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: opacity 0.15s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  section:first-of-type { padding-top: 140px; }
+
+  /* ─── HERO ─── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; min-height: 85vh;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #e6f7f2; color: var(--wg2); border-radius: 20px;
+    padding: 5px 14px; font-size: 12px; font-weight: 500; margin-bottom: 20px;
+  }
+  .hero-badge i { font-size: 13px; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1; font-weight: 400;
+    margin-bottom: 20px; color: var(--text);
+  }
+  h1 em { font-style: italic; color: var(--wg2); }
+  .hero-sub {
+    font-size: 17px; color: var(--muted); line-height: 1.7;
+    margin-bottom: 32px; max-width: 460px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 13px 26px; background: var(--wg); color: #fff;
+    border-radius: 30px; font-size: 14px; font-weight: 500;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline {
+    padding: 13px 26px; border: 1.5px solid var(--border);
+    border-radius: 30px; font-size: 14px; color: var(--text);
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--wg2); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px;
+  }
+  .stat-card {
+    background: var(--surface); border-radius: var(--radius-sm);
+    padding: 16px; border: 1px solid var(--border);
+  }
+  .stat-card .num { font-size: 28px; font-weight: 600; color: var(--wg2); }
+  .stat-card .lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ─── PHONE MOCKUP ─── */
+  .phone-wrap {
+    display: flex; justify-content: center; align-items: center; position: relative;
+  }
+  .phone-glow {
+    position: absolute; width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(37,211,102,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .phone {
+    width: 280px; background: #1a1a1a; border-radius: 40px;
+    padding: 14px 10px; box-shadow: 0 40px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05);
+    position: relative; z-index: 1;
+  }
+  .phone-notch {
+    width: 90px; height: 26px; background: #1a1a1a;
+    border-radius: 0 0 16px 16px; margin: 0 auto 8px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .phone-notch .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+  .phone-notch .dot.cam { background: #2a2a2a; border: 1px solid #444; }
+  .phone-screen {
+    background: #ECE5DD; border-radius: 28px; overflow: hidden;
+    height: 520px; display: flex; flex-direction: column;
+  }
+  .p-topbar {
+    background: #075E54; padding: 10px 14px;
+    display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+  }
+  .p-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #128C7E; display: flex; align-items: center; justify-content: center;
+  }
+  .p-avatar i { color: #fff; font-size: 14px; }
+  .p-name { font-size: 12px; font-weight: 600; color: #fff; }
+  .p-status { font-size: 10px; color: #B2DFDB; }
+  .p-msgs {
+    flex: 1; overflow: hidden; padding: 10px 10px;
+    display: flex; flex-direction: column; gap: 6px;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .p-msg {
+    max-width: 75%; padding: 6px 10px 4px; border-radius: 8px;
+    font-size: 10.5px; line-height: 1.4; animation: fadeUp 0.4s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .p-msg.bot { background: #fff; border-top-left-radius: 2px; }
+  .p-msg.user { background: #DCF8C6; border-top-right-radius: 2px; align-self: flex-end; }
+  .p-msg strong { color: #128C7E; font-weight: 600; }
+  .p-time { font-size: 8.5px; color: #999; text-align: right; margin-top: 2px; }
+  .p-qr { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .p-qr span {
+    background: #fff; border: 0.5px solid #128C7E; color: #128C7E;
+    font-size: 9px; padding: 3px 7px; border-radius: 12px;
+  }
+  .p-input {
+    background: #f0f0f0; padding: 8px 10px;
+    display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+  }
+  .p-input-box {
+    flex: 1; background: #fff; border-radius: 18px;
+    padding: 6px 12px; font-size: 10px; color: #999;
+  }
+  .p-send {
+    width: 30px; height: 30px; background: #128C7E; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .p-send i { color: #fff; font-size: 13px; }
+
+  /* ─── SECTION TITLES ─── */
+  .section-label {
+    font-size: 11px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--wg2); margin-bottom: 10px;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 42px); font-weight: 400;
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  h2 em { font-style: italic; color: var(--wg2); }
+  .section-sub { font-size: 16px; color: var(--muted); max-width: 520px; line-height: 1.7; }
+
+  /* ─── PROBLEM ─── */
+  .problem-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
+  }
+  .problem-card {
+    background: var(--surface); border-radius: var(--radius);
+    padding: 24px; border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .problem-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+  .problem-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 16px;
+  }
+  .problem-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .problem-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .big-stat { font-size: 36px; font-weight: 700; color: var(--wg2); margin-bottom: 4px; }
+
+  /* ─── DEMO ─── */
+  .demo-wrapper {
+    background: var(--surface); border-radius: var(--radius);
+    border: 1px solid var(--border); overflow: hidden; margin-top: 48px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  }
+  .demo-inner {
+    display: grid; grid-template-columns: 220px 1fr 200px;
+    height: 560px;
+  }
+  /* sidebar */
+  .d-sidebar {
+    border-right: 1px solid var(--border); display: flex; flex-direction: column;
+    background: #f9fafb;
+  }
+  .d-sidebar-hdr {
+    padding: 14px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .d-bot-av {
+    width: 34px; height: 34px; border-radius: 50%; background: var(--wg);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .d-bot-av i { color: #fff; font-size: 16px; }
+  .d-bot-name { font-size: 13px; font-weight: 600; }
+  .d-bot-online { font-size: 10px; color: var(--wg2); }
+  .d-section-lbl {
+    padding: 10px 14px 4px; font-size: 9px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted);
+  }
+  .d-flow-btn {
+    display: flex; align-items: center; gap: 9px;
+    padding: 9px 14px; font-size: 12px; color: var(--muted);
+    cursor: pointer; border: none; background: none; width: 100%; text-align: left;
+    transition: background 0.12s; border-left: 2px solid transparent;
+  }
+  .d-flow-btn i { font-size: 14px; }
+  .d-flow-btn:hover { background: #f0f0f0; color: var(--text); }
+  .d-flow-btn.active { background: #fff; color: var(--wg2); border-left-color: var(--wg2); font-weight: 500; }
+
+  /* chat */
+  .d-chat { display: flex; flex-direction: column; background: #ECE5DD; position: relative; }
+  .d-chat::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 20px 20px; pointer-events: none;
+  }
+  .d-topbar {
+    background: #075E54; padding: 10px 14px; flex-shrink: 0; z-index: 1;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .d-topbar-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .d-topbar-status { font-size: 10px; color: #B2DFDB; }
+  .d-topbar-icons { margin-left: auto; display: flex; gap: 14px; }
+  .d-topbar-icons i { color: #B2DFDB; font-size: 16px; }
+  .d-messages {
+    flex: 1; overflow-y: auto; padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 6px; z-index: 1;
+  }
+  .d-messages::-webkit-scrollbar { width: 3px; }
+  .d-messages::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
+  .d-msg-row { display: flex; }
+  .d-msg-row.bot { justify-content: flex-start; }
+  .d-msg-row.user { justify-content: flex-end; }
+  .d-bubble {
+    max-width: 74%; padding: 7px 11px 5px; border-radius: 8px;
+    font-size: 12px; line-height: 1.45;
+  }
+  .d-bubble.bot { background: #fff; border-top-left-radius: 2px; }
+  .d-bubble.user { background: #DCF8C6; border-top-right-radius: 2px; }
+  .d-bubble strong { color: #128C7E; font-weight: 600; }
+  .d-bubble-time { font-size: 9px; color: #999; text-align: right; margin-top: 2px; }
+  .d-qrs { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+  .d-qr-btn {
+    background: #fff; border: 0.5px solid #128C7E; color: #128C7E;
+    font-size: 11px; padding: 3px 9px; border-radius: 14px;
+    cursor: pointer; transition: all 0.12s; white-space: nowrap;
+  }
+  .d-qr-btn:hover { background: #128C7E; color: #fff; }
+  .typing-row { display: flex; }
+  .typing-ind {
+    display: flex; gap: 3px; padding: 8px 11px; align-items: center;
+    background: #fff; border-radius: 8px; border-top-left-radius: 2px;
+  }
+  .t-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #aaa;
+    animation: tb 1.2s infinite ease-in-out;
+  }
+  .t-dot:nth-child(2) { animation-delay: 0.2s; }
+  .t-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes tb { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+  .d-input-bar {
+    padding: 7px 10px; background: #f0f0f0; flex-shrink: 0; z-index: 1;
+    display: flex; align-items: center; gap: 7px;
+    border-top: 0.5px solid rgba(0,0,0,0.1);
+  }
+  .d-input {
+    flex: 1; background: #fff; border: none; border-radius: 18px;
+    padding: 7px 12px; font-size: 12px; outline: none; font-family: var(--font-body);
+    color: #333;
+  }
+  .d-send-btn {
+    width: 32px; height: 32px; border-radius: 50%; background: #128C7E;
+    border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .d-send-btn i { color: #fff; font-size: 15px; }
+
+  /* info panel */
+  .d-info {
+    border-left: 1px solid var(--border); padding: 14px 12px;
+    display: flex; flex-direction: column; gap: 14px; overflow-y: auto;
+    background: var(--surface);
+  }
+  .d-info-lbl {
+    font-size: 9px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--muted); margin-bottom: 6px;
+  }
+  .d-stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+  .d-stat-name { font-size: 11px; color: var(--muted); }
+  .d-stat-val { font-size: 12px; font-weight: 600; }
+  .badge { font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 500; }
+  .badge-g { background: #DCFCE7; color: #166534; }
+  .badge-a { background: #FEF9C3; color: #854D0E; }
+  .badge-b { background: #DBEAFE; color: #1E40AF; }
+  .d-cap {
+    background: #f9fafb; border-radius: 8px; padding: 9px;
+    display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px;
+    border: 1px solid var(--border);
+  }
+  .d-cap i { font-size: 14px; color: var(--wg2); flex-shrink: 0; margin-top: 1px; }
+  .d-cap-title { font-size: 11px; font-weight: 600; }
+  .d-cap-desc { font-size: 10px; color: var(--muted); }
+  .d-divider { height: 1px; background: var(--border); }
+  .d-pitch { background: var(--wg); color: #fff; font-size: 10px; padding: 8px 10px; border-radius: 8px; text-align: center; line-height: 1.5; }
+
+  /* ─── FEATURES GRID ─── */
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; margin-top: 48px;
+  }
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+  .feat-icon {
+    width: 42px; height: 42px; border-radius: 11px;
+    background: #e6f7f2; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 14px;
+  }
+  .feat-icon i { color: var(--wg2); }
+  .feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    align-items: center; margin-top: 48px;
+  }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex; gap: 16px; padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--wg); color: #fff; display: flex; align-items: center;
+    justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .step-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .step-content p { font-size: 13px; color: var(--muted); }
+  .how-visual {
+    background: var(--surface); border-radius: var(--radius);
+    border: 1px solid var(--border); padding: 28px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .flow-step {
+    display: flex; align-items: center; gap: 14px; padding: 14px;
+    background: var(--bg); border-radius: 10px; border: 1px solid var(--border);
+  }
+  .flow-step-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+    flex-shrink: 0;
+  }
+  .flow-arrow { text-align: center; color: var(--muted); font-size: 18px; }
+  .flow-step h5 { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+  .flow-step p { font-size: 11px; color: var(--muted); }
+
+  /* ─── ROI ─── */
+  .roi-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;
+  }
+  .roi-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px; text-align: center;
+    transition: all 0.2s;
+  }
+  .roi-card:hover { border-color: var(--wg2); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+  .roi-card .num { font-size: 38px; font-weight: 700; color: var(--wg2); line-height: 1; }
+  .roi-card .unit { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .roi-card .desc { font-size: 12px; color: var(--muted); margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
+
+  /* ─── PRICING ─── */
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
+  }
+  .pricing-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: all 0.2s;
+  }
+  .pricing-card.featured {
+    border-color: var(--wg2); border-width: 2px;
+    box-shadow: 0 8px 30px rgba(18,140,126,0.12);
+  }
+  .pricing-badge {
+    display: inline-block; background: var(--wg); color: #fff;
+    font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 10px;
+    margin-bottom: 16px; letter-spacing: 0.04em;
+  }
+  .pricing-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .pricing-card .price { font-size: 36px; font-weight: 700; color: var(--text); }
+  .pricing-card .price span { font-size: 14px; color: var(--muted); font-weight: 400; }
+  .pricing-card .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; margin-top: 4px; }
+  .pricing-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .pricing-card ul li {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 13px; color: var(--text);
+  }
+  .pricing-card ul li i { font-size: 15px; color: var(--wg2); flex-shrink: 0; }
+  .pricing-card ul li.dim { color: var(--muted); }
+  .pricing-card ul li.dim i { color: #ccc; }
+  .pricing-cta {
+    display: block; margin-top: 24px; padding: 11px;
+    border-radius: 10px; text-align: center; font-size: 14px;
+    font-weight: 500; text-decoration: none; transition: all 0.15s;
+    border: 1.5px solid var(--border); color: var(--text);
+  }
+  .pricing-cta:hover { border-color: var(--wg2); color: var(--wg2); }
+  .pricing-card.featured .pricing-cta {
+    background: var(--wg); color: #fff; border-color: var(--wg);
+  }
+  .pricing-card.featured .pricing-cta:hover { background: #0a4a43; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
+  }
+  .testi-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px;
+  }
+  .testi-stars { color: #f59e0b; font-size: 14px; margin-bottom: 12px; }
+  .testi-text { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+  }
+  .testi-name { font-size: 13px; font-weight: 600; }
+  .testi-role { font-size: 11px; color: var(--muted); }
+
+  /* ─── CTA FINAL ─── */
+  .cta-section {
+    background: linear-gradient(135deg, #075E54 0%, #128C7E 60%, #25D366 100%);
+    border-radius: 24px; padding: 64px 48px; text-align: center; margin: 80px auto;
+    max-width: 1100px;
+  }
+  .cta-section h2 { color: #fff; font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); margin-bottom: 14px; }
+  .cta-section p { color: rgba(255,255,255,0.75); font-size: 16px; max-width: 480px; margin: 0 auto 32px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-btn-w {
+    padding: 13px 28px; background: #fff; color: var(--wg);
+    border-radius: 30px; font-size: 14px; font-weight: 600; text-decoration: none;
+    transition: opacity 0.15s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .cta-btn-w:hover { opacity: 0.9; }
+  .cta-btn-ghost {
+    padding: 13px 28px; border: 1.5px solid rgba(255,255,255,0.4); color: #fff;
+    border-radius: 30px; font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: border-color 0.15s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .cta-btn-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border); padding: 32px 40px;
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px; color: var(--muted);
+  }
+  footer .logo { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--wg); }
+  footer .logo .li { width: 24px; height: 24px; border-radius: 6px; background: var(--wg); display: flex; align-items: center; justify-content: center; }
+  footer .logo .li i { color: #fff; font-size: 12px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 800px) {
+    nav { padding: 0 20px; }
+    section { padding: 60px 20px; }
+    .hero { grid-template-columns: 1fr; }
+    .phone-wrap { display: none; }
+    .demo-inner { grid-template-columns: 1fr; height: auto; }
+    .d-sidebar, .d-info { display: none; }
+    .d-chat { height: 460px; }
+    .problem-grid, .features-grid, .roi-grid, .pricing-grid, .testi-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">
+    <div class="logo-icon"><i class="ti ti-stethoscope"></i></div>
+    MediBot
+  </a>
+  <div class="nav-links">
+    <a href="#problem">Problem</a>
+    <a href="#demo">Demo</a>
+    <a href="#features">Features</a>
+    <a href="#roi">ROI</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <a class="nav-cta" href="#cta">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="padding-top:120px; padding-bottom:60px; max-width:1100px; margin:0 auto;">
+  <div class="hero">
+    <div>
+      <div class="hero-badge"><i class="ti ti-brand-whatsapp"></i> WhatsApp Business API</div>
+      <h1>Your clinic's <em>24/7</em> AI health assistant</h1>
+      <p class="hero-sub">MediBot automates patient bookings, prescription refills, lab results, and follow-ups — all inside WhatsApp. No app downloads. No waiting on hold.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#demo"><i class="ti ti-player-play"></i> See the demo</a>
+        <a class="btn-outline" href="#roi"><i class="ti ti-chart-bar"></i> View ROI</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card"><div class="num">87%</div><div class="lbl">Queries resolved without human</div></div>
+        <div class="stat-card"><div class="num">&lt; 2s</div><div class="lbl">Average bot response time</div></div>
+        <div class="stat-card"><div class="num">3×</div><div class="lbl">More bookings than phone channel</div></div>
+        <div class="stat-card"><div class="num">40%</div><div class="lbl">Reduction in admin staff workload</div></div>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone-glow"></div>
+      <div class="phone">
+        <div class="phone-notch">
+          <div class="dot"></div>
+          <div class="dot cam"></div>
+        </div>
+        <div class="phone-screen">
+          <div class="p-topbar">
+            <div class="p-avatar"><i class="ti ti-stethoscope"></i></div>
+            <div>
+              <div class="p-name">MediBot — Sunshine Clinic</div>
+              <div class="p-status">● online</div>
+            </div>
+          </div>
+          <div class="p-msgs" id="heroMsgs"></div>
+          <div class="p-input">
+            <div class="p-input-box">Type a message...</div>
+            <div class="p-send"><i class="ti ti-send"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">The Problem</div>
+  <h2>Clinics are losing patients to <em>poor communication</em></h2>
+  <p class="section-sub">Patients expect instant answers. Traditional clinic communication fails them — and costs you revenue.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon" style="background:#fef2f2;"><i class="ti ti-phone-off" style="color:#ef4444; font-size:20px;"></i></div>
+      <div class="big-stat">67%</div>
+      <h3>Missed calls go unanswered</h3>
+      <p>Most clinics miss over half their incoming calls — patients simply book elsewhere or delay care.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon" style="background:#fffbeb;"><i class="ti ti-clock" style="color:#f59e0b; font-size:20px;"></i></div>
+      <div class="big-stat">23 min</div>
+      <h3>Average hold time for booking</h3>
+      <p>Long waits frustrate patients and tie up your front desk staff in repetitive, low-value tasks.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon" style="background:#f0fdf4;"><i class="ti ti-calendar-x" style="color:#22c55e; font-size:20px;"></i></div>
+      <div class="big-stat">30%</div>
+      <h3>No-show rate without reminders</h3>
+      <p>Without automated reminders, nearly 1 in 3 patients misses their appointment — costing your clinic dearly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">Interactive Demo</div>
+  <h2>See <em>MediBot</em> in action</h2>
+  <p class="section-sub">Click a patient flow in the sidebar to experience real conversations your patients will have.</p>
+
+  <div class="demo-wrapper">
+    <div class="demo-inner">
+      <!-- sidebar -->
+      <div class="d-sidebar">
+        <div class="d-sidebar-hdr">
+          <div class="d-bot-av"><i class="ti ti-stethoscope"></i></div>
+          <div>
+            <div class="d-bot-name">MediBot</div>
+            <div class="d-bot-online">● online</div>
+          </div>
+        </div>
+        <div class="d-section-lbl">Patient Flows</div>
+        <button class="d-flow-btn active" onclick="loadFlow('book')" data-flow="book"><i class="ti ti-calendar-plus"></i> Book Appointment</button>
+        <button class="d-flow-btn" onclick="loadFlow('results')" data-flow="results"><i class="ti ti-test-pipe"></i> Lab Results</button>
+        <button class="d-flow-btn" onclick="loadFlow('refill')" data-flow="refill"><i class="ti ti-pill"></i> Prescription Refill</button>
+        <button class="d-flow-btn" onclick="loadFlow('triage')" data-flow="triage"><i class="ti ti-activity-heartbeat"></i> Symptom Triage</button>
+        <button class="d-flow-btn" onclick="loadFlow('followup')" data-flow="followup"><i class="ti ti-message-check"></i> Post-Visit Follow-up</button>
+        <div style="height:1px; background:var(--border); margin:6px 0;"></div>
+        <div class="d-section-lbl">Admin Flows</div>
+        <button class="d-flow-btn" onclick="loadFlow('remind')" data-flow="remind"><i class="ti ti-bell"></i> Appointment Reminder</button>
+        <button class="d-flow-btn" onclick="loadFlow('feedback')" data-flow="feedback"><i class="ti ti-star"></i> Patient Feedback</button>
+      </div>
+
+      <!-- chat -->
+      <div class="d-chat">
+        <div class="d-topbar">
+          <div class="d-bot-av"><i class="ti ti-stethoscope"></i></div>
+          <div>
+            <div class="d-topbar-name">MediBot — Sunshine Clinic</div>
+            <div class="d-topbar-status">Typically replies instantly</div>
+          </div>
+          <div class="d-topbar-icons">
+            <i class="ti ti-phone"></i>
+            <i class="ti ti-dots-vertical"></i>
+          </div>
+        </div>
+        <div class="d-messages" id="demoMessages"></div>
+        <div class="d-input-bar">
+          <i class="ti ti-mood-smile" style="font-size:20px; color:#777; cursor:pointer;"></i>
+          <input class="d-input" id="demoInput" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendDemo()" />
+          <i class="ti ti-paperclip" style="font-size:18px; color:#777; cursor:pointer;"></i>
+          <button class="d-send-btn" onclick="sendDemo()"><i class="ti ti-send"></i></button>
+        </div>
+      </div>
+
+      <!-- info -->
+      <div class="d-info">
+        <div>
+          <div class="d-info-lbl">Live Stats</div>
+          <div class="d-stat-row"><span class="d-stat-name">Today's chats</span><span class="d-stat-val">142</span></div>
+          <div class="d-stat-row"><span class="d-stat-name">Appts booked</span><span class="d-stat-val">38</span></div>
+          <div class="d-stat-row"><span class="d-stat-name">Avg response</span><span class="d-stat-val">&lt;2s</span></div>
+          <div class="d-stat-row"><span class="d-stat-name">Resolution rate</span><span class="d-stat-val">87%</span></div>
+        </div>
+        <div class="d-divider"></div>
+        <div>
+          <div class="d-info-lbl">Current patient</div>
+          <div class="d-stat-row"><span class="d-stat-name">Name</span><span class="badge badge-b" id="ptName">New Patient</span></div>
+          <div class="d-stat-row"><span class="d-stat-name">Flow</span><span class="badge badge-g" id="ptFlow">Booking</span></div>
+          <div class="d-stat-row"><span class="d-stat-name">Status</span><span class="badge badge-a" id="ptStatus">In Progress</span></div>
+        </div>
+        <div class="d-divider"></div>
+        <div>
+          <div class="d-info-lbl">Capabilities</div>
+          <div class="d-cap"><i class="ti ti-calendar"></i><div><div class="d-cap-title">Smart scheduling</div><div class="d-cap-desc">Real-time availability</div></div></div>
+          <div class="d-cap"><i class="ti ti-lock"></i><div><div class="d-cap-title">HIPAA compliant</div><div class="d-cap-desc">E2E encrypted chats</div></div></div>
+          <div class="d-cap"><i class="ti ti-world"></i><div><div class="d-cap-title">Multilingual</div><div class="d-cap-desc">EN, Afrikaans + more</div></div></div>
+          <div class="d-cap"><i class="ti ti-robot"></i><div><div class="d-cap-title">AI triage</div><div class="d-cap-desc">Escalates urgent cases</div></div></div>
+        </div>
+        <div class="d-divider"></div>
+        <div class="d-pitch">Powered by AI + WhatsApp Business API</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">Features</div>
+  <h2>Everything your clinic needs, <em>automated</em></h2>
+  <p class="section-sub">MediBot handles the repetitive, time-consuming patient communication tasks — so your staff can focus on care.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-calendar-check"></i></div>
+      <h3>Smart Appointment Booking</h3>
+      <p>Patients book, reschedule, or cancel appointments 24/7. Real-time doctor availability with instant confirmation.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-test-pipe"></i></div>
+      <h3>Lab Result Delivery</h3>
+      <p>Securely send lab results directly to patients via WhatsApp after identity verification. No phone tag required.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-pill"></i></div>
+      <h3>Prescription Refills</h3>
+      <p>Patients request refills, the bot routes to the prescribing doctor for approval, and notifies when ready.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-activity-heartbeat"></i></div>
+      <h3>AI Symptom Triage</h3>
+      <p>Intelligent first assessment guides patients to the right level of care — emergency, urgent, or routine.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-bell"></i></div>
+      <h3>Automated Reminders</h3>
+      <p>24-hour and 2-hour appointment reminders reduce no-shows by up to 60%. Patients confirm with one tap.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-message-check"></i></div>
+      <h3>Post-Visit Follow-up</h3>
+      <p>Automated recovery check-ins improve outcomes and give doctors real-time patient progress updates.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-star"></i></div>
+      <h3>Feedback & Reviews</h3>
+      <p>Collect satisfaction ratings after every visit. Capture referrals while experience is fresh in mind.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-chart-bar"></i></div>
+      <h3>Analytics Dashboard</h3>
+      <p>Real-time insights on chat volumes, resolution rates, most common queries, and patient satisfaction scores.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon"><i class="ti ti-plug-connected"></i></div>
+      <h3>EHR Integration</h3>
+      <p>Connects with existing systems — HealthSuite, PIMS, iClinic, and custom EMR via secure REST APIs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">How It Works</div>
+  <h2>Up and running in <em>2 weeks</em></h2>
+  <div class="how-grid">
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>WhatsApp Business Account Setup</h4>
+          <p>We register your clinic's verified WhatsApp Business number with Meta and configure your brand profile.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Customise Flows & Branding</h4>
+          <p>We map your specific appointment types, doctors, services, and brand voice into the chatbot flows.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>EHR & System Integration</h4>
+          <p>Connect MediBot to your existing scheduling, results, and billing systems via API.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Staff Training & Go Live</h4>
+          <p>Brief your team on the escalation protocol and handoff process. Launch and start serving patients.</p>
+        </div>
+      </div>
+    </div>
+    <div class="how-visual">
+      <div style="font-size:13px; font-weight:600; margin-bottom:4px;">Patient Journey</div>
+      <div class="flow-step">
+        <div class="flow-step-icon" style="background:#e6f7f2;"><i class="ti ti-brand-whatsapp" style="color:#128C7E; font-size:20px;"></i></div>
+        <div><h5>Patient messages clinic</h5><p>Any time, any day — no hold music</p></div>
+      </div>
+      <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flow-step">
+        <div class="flow-step-icon" style="background:#eff6ff;"><i class="ti ti-robot" style="color:#3b82f6; font-size:20px;"></i></div>
+        <div><h5>MediBot identifies intent</h5><p>Booking, refill, results, triage...</p></div>
+      </div>
+      <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flow-step">
+        <div class="flow-step-icon" style="background:#fefce8;"><i class="ti ti-database" style="color:#d97706; font-size:20px;"></i></div>
+        <div><h5>Connects to your systems</h5><p>EHR, calendar, lab portal, pharmacy</p></div>
+      </div>
+      <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flow-step">
+        <div class="flow-step-icon" style="background:#f0fdf4;"><i class="ti ti-check" style="color:#22c55e; font-size:20px;"></i></div>
+        <div><h5>Patient gets instant resolution</h5><p>Or escalated to staff if needed</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section id="roi" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">Return on Investment</div>
+  <h2>The numbers speak for <em>themselves</em></h2>
+  <p class="section-sub">Based on averages from clinics with 50–200 patients per day.</p>
+  <div class="roi-grid">
+    <div class="roi-card">
+      <div class="num">60%</div>
+      <div class="unit">Fewer no-shows</div>
+      <div class="desc">Automated reminders and 1-tap confirmation dramatically reduce missed appointments</div>
+    </div>
+    <div class="roi-card">
+      <div class="num">4×</div>
+      <div class="unit">Booking capacity</div>
+      <div class="desc">Bot handles parallel conversations — no queue, no limit on simultaneous patients</div>
+    </div>
+    <div class="roi-card">
+      <div class="num">40%</div>
+      <div class="unit">Admin cost saving</div>
+      <div class="desc">Reduce front-desk workload by automating 80% of inbound patient queries</div>
+    </div>
+    <div class="roi-card">
+      <div class="num">4.8★</div>
+      <div class="unit">Avg patient rating</div>
+      <div class="desc">Patients love the instant, friendly responses — reflected in satisfaction scores</div>
+    </div>
+  </div>
+  <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; margin-top:24px; display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px;">
+      <div style="font-size:13px; color:var(--muted); margin-bottom:4px;">Example: 100-patient/day clinic</div>
+      <div style="font-size:28px; font-weight:700; color:var(--wg2);">N$18,000</div>
+      <div style="font-size:13px; color:var(--muted);">estimated monthly revenue recovered from reduced no-shows alone</div>
+    </div>
+    <div style="flex:1; min-width:200px; border-left:1px solid var(--border); padding-left:40px;">
+      <div style="font-size:13px; color:var(--muted); margin-bottom:4px;">MediBot monthly cost (Clinic plan)</div>
+      <div style="font-size:28px; font-weight:700; color:var(--text);">N$4,990</div>
+      <div style="font-size:13px; color:var(--muted);">typical ROI: <strong style="color:var(--wg2);">3.6× in month 1</strong></div>
+    </div>
+    <div style="flex:1; min-width:200px; border-left:1px solid var(--border); padding-left:40px;">
+      <div style="font-size:13px; color:var(--muted); margin-bottom:4px;">Setup & Integration</div>
+      <div style="font-size:28px; font-weight:700; color:var(--text);">14 days</div>
+      <div style="font-size:13px; color:var(--muted);">average time from contract to live deployment</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">Social Proof</div>
+  <h2>Trusted by <em>forward-thinking</em> clinics</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"MediBot completely transformed our front desk. We went from missing 40% of calls to having zero missed booking opportunities. Our staff can now focus on patients in front of them."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#e6f7f2; color:#128C7E;">PU</div>
+        <div>
+          <div class="testi-name">Dr. Petrus Uushona</div>
+          <div class="testi-role">GP, Sunshine Clinic — Windhoek</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The prescription refill flow alone saved us 2 hours of phone calls per day. Patients love getting their results on WhatsApp — it's what they already use. Brilliant product."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#eff6ff; color:#3b82f6;">IM</div>
+        <div>
+          <div class="testi-name">Dr. Ingrid Müller</div>
+          <div class="testi-role">Specialist, MedPlex Clinic — Swakopmund</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"We deployed MediBot at our 3 branches simultaneously. Setup was smooth and the team was responsive. Our no-show rate dropped from 28% to 11% in the first month."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#fef3c7; color:#d97706;">SK</div>
+        <div>
+          <div class="testi-name">Sarah Kamati</div>
+          <div class="testi-role">Operations Manager, HealthFirst Group</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding-top:80px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">Pricing</div>
+  <h2>Simple, transparent <em>pricing</em></h2>
+  <p class="section-sub">All plans include setup, training, and WhatsApp Business API integration. No hidden fees.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3>Starter</h3>
+      <div class="price">N$1,990 <span>/ month</span></div>
+      <div class="price-desc">Perfect for solo practitioners</div>
+      <ul>
+        <li><i class="ti ti-check"></i> Up to 500 conversations/mo</li>
+        <li><i class="ti ti-check"></i> Appointment booking flow</li>
+        <li><i class="ti ti-check"></i> Automated reminders</li>
+        <li><i class="ti ti-check"></i> Basic analytics</li>
+        <li><i class="ti ti-check"></i> WhatsApp Business setup</li>
+        <li class="dim"><i class="ti ti-x"></i> Lab results delivery</li>
+        <li class="dim"><i class="ti ti-x"></i> Prescription refills</li>
+        <li class="dim"><i class="ti ti-x"></i> EHR integration</li>
+      </ul>
+      <a class="pricing-cta" href="#cta">Get started</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">MOST POPULAR</div>
+      <h3>Clinic</h3>
+      <div class="price">N$4,990 <span>/ month</span></div>
+      <div class="price-desc">For growing clinics &amp; group practices</div>
+      <ul>
+        <li><i class="ti ti-check"></i> Up to 3,000 conversations/mo</li>
+        <li><i class="ti ti-check"></i> All 7 patient flows</li>
+        <li><i class="ti ti-check"></i> Lab results delivery</li>
+        <li><i class="ti ti-check"></i> Prescription refill automation</li>
+        <li><i class="ti ti-check"></i> AI symptom triage</li>
+        <li><i class="ti ti-check"></i> EHR integration (1 system)</li>
+        <li><i class="ti ti-check"></i> Full analytics dashboard</li>
+        <li><i class="ti ti-check"></i> Priority support</li>
+      </ul>
+      <a class="pricing-cta" href="#cta">Get started</a>
+    </div>
+    <div class="pricing-card">
+      <h3>Enterprise</h3>
+      <div class="price">Custom</div>
+      <div class="price-desc">For hospital groups &amp; multi-branch clinics</div>
+      <ul>
+        <li><i class="ti ti-check"></i> Unlimited conversations</li>
+        <li><i class="ti ti-check"></i> All Clinic features</li>
+        <li><i class="ti ti-check"></i> Custom AI training</li>
+        <li><i class="ti ti-check"></i> Multi-branch management</li>
+        <li><i class="ti ti-check"></i> Unlimited EHR integrations</li>
+        <li><i class="ti ti-check"></i> Multilingual support</li>
+        <li><i class="ti ti-check"></i> Dedicated account manager</li>
+        <li><i class="ti ti-check"></i> SLA & uptime guarantee</li>
+      </ul>
+      <a class="pricing-cta" href="#cta">Contact us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div style="padding: 0 40px;">
+  <div class="cta-section" id="cta">
+    <h2>Ready to transform your clinic?</h2>
+    <p>Join forward-thinking clinics already using MediBot to deliver better patient care — automatically.</p>
+    <div class="cta-btns">
+      <a class="cta-btn-w" href="https://wa.me/264813439495"><i class="ti ti-brand-whatsapp"></i> Chat with us on WhatsApp</a>
+      <a class="cta-btn-ghost" href="mailto:aupokolo@icloud.com?subject=MediBot%20Demo%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20call%20for%20MediBot.%0A%0AYou%20can%20also%20reach%20us%20at%20%2B264%2081%203439%20495"><i class="ti ti-mail"></i> Book a demo call</a>
+    </div>
+    <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:24px;">14-day free trial · No credit card required · Setup in 2 weeks</p>
+    <div style="display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.15);">
+      <a href="mailto:aupokolo@icloud.com" style="display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,0.75); text-decoration:none; font-size:13px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.75)'"><i class="ti ti-mail" style="font-size:16px;"></i> aupokolo@icloud.com</a>
+      <a href="https://wa.me/264813439495" style="display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,0.75); text-decoration:none; font-size:13px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.75)'"><i class="ti ti-phone" style="font-size:16px;"></i> +264 81 3439 495</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">
+    <div class="li"><i class="ti ti-stethoscope"></i></div>
+    MediBot
+  </div>
+  <span>© 2026 MediBot. Powered by AI + WhatsApp Business API.</span>
+  <span style="font-size:11px;">HIPAA Compliant &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; POPIA Compliant</span>
+</footer>
+
+<script>
+/* ─── HERO PHONE ANIMATION ─── */
+const heroConvo = [
+  { role:'bot', text:'👋 Welcome to <strong>Sunshine Clinic</strong>!\n\nI\'m MediBot. How can I help?', qr:['📅 Book appointment','💊 Prescription refill','🧪 Lab results'] },
+  { role:'user', text:'📅 Book appointment' },
+  { role:'bot', text:'Which <strong>department</strong> do you need?\n\n1. General Practice\n2. Gynaecology\n3. Paediatrics\n4. Dental', qr:['General Practice','Dental','Paediatrics'] },
+  { role:'user', text:'General Practice' },
+  { role:'bot', text:'Next available:\n\n👨‍⚕️ <strong>Dr. Uushona</strong> — Mon 10:30\n👩‍⚕️ <strong>Dr. Müller</strong> — Tue 09:00', qr:['Mon 10:30','Tue 09:00'] },
+  { role:'user', text:'Mon 10:30' },
+  { role:'bot', text:'✅ <strong>Confirmed!</strong>\n\n📅 Monday 2 June • 10:30 AM\n👨‍⚕️ Dr. Uushona\n🏥 Sunshine Clinic', qr:['Add reminder','Get directions'] },
+];
+let hIdx=0; let hPaused=false;
+function heroTick(){
+  if(hIdx>=heroConvo.length){setTimeout(()=>{document.getElementById('heroMsgs').innerHTML='';hIdx=0;heroTick();},3000);return;}
+  const m=heroConvo[hIdx]; hIdx++;
+  const div=document.createElement('div');
+  div.style.cssText='display:flex;'+(m.role==='user'?'justify-content:flex-end;':'');
+  const b=document.createElement('div');
+  b.className='p-msg '+m.role;
+  b.innerHTML=m.text.replace(/\n/g,'<br>');
+  const t=document.createElement('div');t.className='p-time';t.textContent=new Date().toTimeString().slice(0,5);
+  b.appendChild(t);
+  if(m.qr&&m.qr.length){
+    const qr=document.createElement('div');qr.className='p-qr';
+    m.qr.forEach(q=>{const s=document.createElement('span');s.textContent=q;qr.appendChild(s);});
+    b.appendChild(qr);
+  }
+  div.appendChild(b);
+  const container=document.getElementById('heroMsgs');
+  container.appendChild(div);
+  container.scrollTop=container.scrollHeight;
+  setTimeout(heroTick, m.role==='user'?700:1800);
+}
+heroTick();
+
+/* ─── DEMO CHATBOT ─── */
+const flows = {
+  book:{ label:"Booking", ptName:"Amara K.", messages:[
+    {role:"bot",text:"👋 Hello! Welcome to *Sunshine Clinic*.\n\nI'm MediBot. How can I help you today?",qr:["📅 Book appointment","💊 Prescription refill","🧪 Lab results","❓ Other"]},
+    {role:"user",text:"📅 Book appointment"},
+    {role:"bot",text:"Which *department* do you need?\n\n*1.* General Practice\n*2.* Gynaecology\n*3.* Paediatrics\n*4.* Dental\n*5.* Mental Health",qr:["General Practice","Gynaecology","Paediatrics","Dental"]},
+    {role:"user",text:"General Practice"},
+    {role:"bot",text:"Our *General Practice* doctors this week:\n\n👨‍⚕️ *Dr. Petrus Uushona* — Mon, Wed, Fri\n👩‍⚕️ *Dr. Ingrid Müller* — Tue, Thu\n\nWhich do you prefer?",qr:["Dr. Uushona","Dr. Müller","No preference"]},
+    {role:"user",text:"Dr. Uushona"},
+    {role:"bot",text:"Dr. Uushona's *open slots*:\n\n📆 *Monday* — 09:00, 10:30, 14:00\n📆 *Wednesday* — 08:30, 11:00\n\nWhich works for you?",qr:["Mon 09:00","Mon 10:30","Mon 14:00","Wed 08:30"]},
+    {role:"user",text:"Mon 10:30"},
+    {role:"bot",text:"✅ *Appointment confirmed!*\n\n🏥 Sunshine Clinic\n👨‍⚕️ Dr. Petrus Uushona\n📅 Monday, 2 June 2026\n⏰ 10:30 AM\n\nYou'll receive a reminder 24 hrs before. Reply *CANCEL* anytime.",qr:["No, thank you","Add to calendar","Get directions"]},
+  ]},
+  results:{ label:"Lab Results", ptName:"John M.", messages:[
+    {role:"bot",text:"👋 Welcome to *Sunshine Clinic*. I'm MediBot.\n\nHow can I assist you today?",qr:["🧪 Check lab results","📅 Book appointment","💊 Prescription refill"]},
+    {role:"user",text:"🧪 Check lab results"},
+    {role:"bot",text:"To access your results securely, I need to verify your identity.\n\nPlease enter your *patient ID* or *ID number*."},
+    {role:"user",text:"940512 5042 083"},
+    {role:"bot",text:"🔐 Verifying your identity...\n\n✅ Identity confirmed. Hello, *John*!\n\nYour recent lab reports:"},
+    {role:"bot",text:"📋 *Full Blood Count* — 28 May 2026\nStatus: *Ready* ✅\n\n📋 *Lipid Panel* — 28 May 2026\nStatus: *Ready* ✅\n\n📋 *Thyroid Function* — 30 May 2026\nStatus: *Processing* ⏳\n\nView a report or speak to a nurse?",qr:["View Blood Count","View Lipid Panel","Speak to a nurse"]},
+    {role:"user",text:"View Blood Count"},
+    {role:"bot",text:"🩸 *Full Blood Count — John M.*\n━━━━━━━━━━━━\nHaemoglobin: 14.2 g/dL ✅\nWBC: 6.8 × 10³/µL ✅\nPlatelets: 245 × 10³/µL ✅\n━━━━━━━━━━━━\n\nAll values *within normal range*. 🎉\n\nDr. Uushona has reviewed these. Book a follow-up?",qr:["Book follow-up","No thanks","Download PDF"]},
+  ]},
+  refill:{ label:"Prescription Refill", ptName:"Sarah N.", messages:[
+    {role:"bot",text:"👋 Hello! I'm MediBot at *Sunshine Clinic*.\n\nWhat brings you here today?",qr:["💊 Refill prescription","📅 Book appointment","🧪 Lab results"]},
+    {role:"user",text:"💊 Refill prescription"},
+    {role:"bot",text:"I can help with that! Please verify your ID to proceed."},
+    {role:"user",text:"Sarah N. — Patient ID: SC-40821"},
+    {role:"bot",text:"✅ Welcome back, *Sarah*!\n\nYour active prescriptions:\n\n💊 *Metformin 500mg* — 60 tabs remaining\n💊 *Amlodipine 5mg* — 12 tabs ⚠️\n💊 *Atorvastatin 20mg* — 30 tabs remaining\n\nWhich to refill?",qr:["Amlodipine 5mg","Atorvastatin 20mg","All of them"]},
+    {role:"user",text:"Amlodipine 5mg"},
+    {role:"bot",text:"📋 *Refill — Amlodipine 5mg*\n\nLast prescribed by: Dr. Ingrid Müller\nRemaining refills: *2 of 3*\n\nSend this request to *Dr. Müller* for approval?",qr:["Yes, send request","Cancel"]},
+    {role:"user",text:"Yes, send request"},
+    {role:"bot",text:"✅ *Refill request sent!*\n\nDr. Müller will review within *24 hours*. You'll be notified on WhatsApp.\n\n💡 You have about *3 days* of Amlodipine remaining — don't miss a dose.",qr:["Set a reminder","Okay, thanks"]},
+  ]},
+  triage:{ label:"Symptom Triage", ptName:"Anonymous", messages:[
+    {role:"bot",text:"👋 Hello! I'm MediBot at *Sunshine Clinic*.\n\nAre you experiencing a medical concern?",qr:["Yes, I need help","Just exploring"]},
+    {role:"user",text:"Yes, I need help"},
+    {role:"bot",text:"⚠️ *Emergency check first:*\nAre you experiencing any of these?\n\n• Chest pain or difficulty breathing\n• Loss of consciousness\n• Severe bleeding\n• Stroke symptoms",qr:["Yes — emergency!","No, continue"]},
+    {role:"user",text:"No, continue"},
+    {role:"bot",text:"Please briefly describe your *main symptom* or concern."},
+    {role:"user",text:"I've had a headache for 2 days with fever and body aches"},
+    {role:"bot",text:"🌡️ What is your *temperature* if measured?",qr:["Below 38°C","38–39°C","Above 39°C","Haven't measured"]},
+    {role:"user",text:"38–39°C"},
+    {role:"bot",text:"📊 *Preliminary Assessment:*\n\nSymptoms suggest possible *flu or viral infection*.\n\n🟡 *Priority: Moderate*\n\n✅ Stay hydrated · Rest · Paracetamol\n\n👨‍⚕️ Recommend booking within 24 hrs",qr:["Book same-day appt","Monitor at home","Talk to a nurse"]},
+    {role:"user",text:"Book same-day appt"},
+    {role:"bot",text:"✅ *Flagged as moderate priority.*\n\nNext available today:\n⏰ *14:30 — Dr. Uushona*\n\nConfirm?",qr:["Confirm 14:30","See other times"]},
+  ]},
+  followup:{ label:"Post-Visit Follow-up", ptName:"Amara K.", messages:[
+    {role:"bot",text:"Hello *Amara* 👋\n\nThis is MediBot from *Sunshine Clinic*.\n\nYou visited Dr. Uushona on *28 May*. How are you feeling?",qr:["Much better","About the same","Worse","Have a question"]},
+    {role:"user",text:"Much better"},
+    {role:"bot",text:"Wonderful! 🎉\n\nWere you able to complete your medication course?",qr:["Yes, completed","Had side effects","Still taking it"]},
+    {role:"user",text:"Yes, completed"},
+    {role:"bot",text:"Any *side effects* from the medication?",qr:["No side effects","Mild side effects","Severe side effects"]},
+    {role:"user",text:"No side effects"},
+    {role:"bot",text:"Perfect! Your recovery is going very well. 💪\n\n📋 *Summary sent to Dr. Uushona.*\n\nWould you like to:\n• Schedule a routine check-up in 3 months?\n• Receive wellness tips via WhatsApp?",qr:["Schedule check-up","Wellness tips","No thanks"]},
+    {role:"user",text:"Schedule check-up"},
+    {role:"bot",text:"✅ *Routine check-up scheduled!*\n📅 August 2026 — You'll get a reminder 1 week before.\n\nTake care, Amara! 😊",qr:["Thank you!"]},
+  ]},
+  remind:{ label:"Appointment Reminder", ptName:"John M.", messages:[
+    {role:"bot",text:"📅 *Appointment Reminder*\n\nHello *John* 👋\n\nYou have an upcoming appointment:\n\n👩‍⚕️ Dr. Ingrid Müller\n📅 Tomorrow, 31 May 2026\n⏰ 09:00 AM · Room 4\n\nPlease confirm your attendance.",qr:["✅ Confirm","🔄 Reschedule","❌ Cancel"]},
+    {role:"user",text:"✅ Confirm"},
+    {role:"bot",text:"✅ *Confirmed!* Thank you, John.\n\n📍 Sunshine Clinic, Independence Ave, Windhoek\n🅿️ Free parking available\n\n*Bring with you:*\n• ID · Previous prescriptions · Medical aid card",qr:["Get directions","Add to calendar","Okay, thank you"]},
+    {role:"user",text:"Okay, thank you"},
+    {role:"bot",text:"See you tomorrow, John! 😊\n\nMessage us anytime if plans change. We're available 24/7.",qr:[]},
+  ]},
+  feedback:{ label:"Patient Feedback", ptName:"Sarah N.", messages:[
+    {role:"bot",text:"Hello *Sarah* 👋\n\nThank you for visiting *Sunshine Clinic*!\n\n⭐ How would you rate your experience?",qr:["⭐⭐⭐⭐⭐ Excellent","⭐⭐⭐⭐ Good","⭐⭐⭐ Average","⭐⭐ Poor"]},
+    {role:"user",text:"⭐⭐⭐⭐⭐ Excellent"},
+    {role:"bot",text:"Wonderful! 🙏 How would you rate *Dr. Ingrid Müller* specifically?",qr:["⭐⭐⭐⭐⭐ Outstanding","⭐⭐⭐⭐ Very good","⭐⭐⭐ Good"]},
+    {role:"user",text:"⭐⭐⭐⭐⭐ Outstanding"},
+    {role:"bot",text:"🌟 Awesome! Care to share a quick comment? (optional)\n\nOr type *skip*."},
+    {role:"user",text:"The staff were very kind and wait time was short. Dr. Müller explained everything clearly."},
+    {role:"bot",text:"Thank you so much, Sarah! 💙\n\nYour feedback has been shared with our team.\n\n*Refer a friend* to Sunshine Clinic and they get *10% off* their first consultation!",qr:["Share with a friend","No thanks","Book my next visit"]},
+  ]},
+};
+
+let currentFlow='book', msgIndex=0, isTyping=false;
+
+function getT(){const n=new Date();return n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');}
+
+function fmtTxt(t){
+  return t.replace(/\*(.*?)\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+}
+
+function appendDemoMsg(role,text,qrs){
+  const msgs=document.getElementById('demoMessages');
+  const row=document.createElement('div');row.className='d-msg-row '+role;
+  const b=document.createElement('div');b.className='d-bubble '+role;
+  b.innerHTML='<div>'+fmtTxt(text)+'</div>';
+  const ti=document.createElement('div');ti.className='d-bubble-time';ti.textContent=getT();b.appendChild(ti);
+  if(qrs&&qrs.length){
+    const qd=document.createElement('div');qd.className='d-qrs';
+    qrs.forEach(q=>{
+      const btn=document.createElement('button');btn.className='d-qr-btn';btn.textContent=q;
+      btn.onclick=()=>handleQR(q);qd.appendChild(btn);
+    });
+    b.appendChild(qd);
+  }
+  row.appendChild(b);msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;
+}
+
+function showTyping(){
+  const msgs=document.getElementById('demoMessages');
+  const row=document.createElement('div');row.className='typing-row';row.id='dTyping';
+  const ind=document.createElement('div');ind.className='typing-ind';
+  ind.innerHTML='<div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>';
+  row.appendChild(ind);msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('dTyping');if(t)t.remove();}
+
+function playNextBot(){
+  const flow=flows[currentFlow];
+  if(msgIndex>=flow.messages.length)return;
+  const msg=flow.messages[msgIndex];
+  if(msg.role!=='bot')return;
+  isTyping=true;showTyping();
+  const delay=Math.min(600+msg.text.length*7,1600);
+  setTimeout(()=>{
+    removeTyping();appendDemoMsg('bot',msg.text,msg.qr);msgIndex++;isTyping=false;
+    if(msgIndex<flow.messages.length&&flows[currentFlow].messages[msgIndex].role==='bot')setTimeout(playNextBot,400);
+  },delay);
+}
+
+function handleQR(text){
+  const flow=flows[currentFlow];if(isTyping)return;
+  if(msgIndex<flow.messages.length&&flow.messages[msgIndex].role==='user'&&flow.messages[msgIndex].text===text){
+    appendDemoMsg('user',text,null);msgIndex++;setTimeout(playNextBot,300);
+  } else {
+    appendDemoMsg('user',text,null);
+    setTimeout(()=>{appendDemoMsg('bot','Got it! Use the quick reply buttons to navigate this demo flow. 🤖',[]);},800);
+  }
+}
+
+function sendDemo(){
+  const inp=document.getElementById('demoInput');
+  const text=inp.value.trim();if(!text||isTyping)return;
+  inp.value='';appendDemoMsg('user',text,null);
+  setTimeout(()=>{appendDemoMsg('bot','Thanks! In a live deployment, our AI responds contextually. Use the quick reply buttons to explore this demo. 🤖',[]);},900);
+}
+
+function loadFlow(flowId){
+  currentFlow=flowId;msgIndex=0;isTyping=false;
+  document.getElementById('demoMessages').innerHTML='';
+  document.querySelectorAll('.d-flow-btn').forEach(b=>b.classList.toggle('active',b.dataset.flow===flowId));
+  const f=flows[flowId];
+  document.getElementById('ptName').textContent=f.ptName;
+  document.getElementById('ptFlow').textContent=f.label;
+  document.getElementById('ptStatus').textContent='In Progress';
+  setTimeout(playNextBot,300);
+}
+
+loadFlow('book');
+</script>
+</body>
+</html>
